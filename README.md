@@ -20,6 +20,8 @@ is not currently documented.
 Clone the repository then enter "vagrant up".  You will then have the API available at http://localhost:9090/api.
 A sample query is http://localhost:9090/api/v1/players?last_name=Aaron
 
+To change the local port, change the forwarded port in the Vagrantfile
+
 # TODO
 * Integration tests
 * Unit tests for Python
