@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'chef_nginx', '~> 6.1.1'
+cookbook 'mysql', '~> 8.0'
+cookbook 'poise-python', '~> 1.6.0'
+cookbook 'zipfile', '~> 0.2.0'

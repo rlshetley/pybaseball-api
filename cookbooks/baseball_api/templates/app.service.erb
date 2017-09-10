@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve pybasdeball
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/opt/baseball_api/
+Environment="PATH=/opt/baseball_api/.env"
+ExecStart=/opt/baseball_api/uwsgi --ini /opt/baseball_api/pybaseball.ini
+
+[Install]
+WantedBy=multi-user.target
