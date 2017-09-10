@@ -1,0 +1,6 @@
+.DS_Store
+src/linuxLocal
+*.pyc
+*.lock
+.vagrant/
+*.log
