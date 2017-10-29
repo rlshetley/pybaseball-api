@@ -17,4 +17,5 @@ def create_app(config_name):
 
 app = create_app('development')
 
-from app.controllers import *
+from app.player_controller import *
+from app.team_controller import *

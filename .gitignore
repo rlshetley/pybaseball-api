@@ -1,6 +1,9 @@
 .DS_Store
-src/linuxLocal
+src/.env
+src/.localDev
 *.pyc
 *.lock
 .vagrant/
 *.log
+src/stats_calculator/__pycache__
+src/stats_calculator/.cache

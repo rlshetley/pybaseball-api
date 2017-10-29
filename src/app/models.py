@@ -3,6 +3,8 @@ from app.database import *
 from itertools import groupby
 from sqlalchemy import and_
 
+from stats_calculator.stats_calculator import *
+
 def get_batting_stats(player_id):
     items = session.query(Batting, Teams).\
 		join(Teams, and_(Teams.teamID == Batting.teamID, Teams.yearID == Batting.yearID, Teams.lgID == Batting.lgID)).\
@@ -11,11 +13,7 @@ def get_batting_stats(player_id):
     batting_stats = _process_items(items)
 
     for batting_stat in batting_stats:
-        at_bats = int(batting_stat['AB'])
-        if at_bats > 0:
-            batting_stat['avg'] = int(batting_stat['H']) / at_bats
-        else:
-            batting_stat['avg'] = 0
+        batting_stat['avg'] = get_batting_average(int(batting_stat['H']) , int(batting_stat['AB']))
 
     return batting_stats;
 
@@ -32,6 +30,17 @@ def get_fielding_stats(player_id):
 		filter(Fielding.playerID == player_id).all()
 
     return _process_items(items)
+
+def transform_model_col(items):
+    res = []
+
+    for item in items:
+        res.append(to_dict(item))
+
+    return res
+
+def transform_model(item):
+    return to_dict(item)
 
 def _process_items(items):
 

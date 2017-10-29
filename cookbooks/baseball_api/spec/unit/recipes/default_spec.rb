@@ -37,4 +37,8 @@ describe 'baseball_api::default' do
       it 'includes the database recipe' do
         expect(chef_run).to include_recipe('baseball_api::database')
       end
+
+      it 'includes the searchEngine recipe' do
+        expect(chef_run).to include_recipe('baseball_api::searchEngine')
+      end
 end
